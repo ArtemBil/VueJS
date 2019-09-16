@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Melanie",
+    "surname": "Gibbs",
+    "phone": 2025550170,
+    "email": "example@gmail.com"
+  },
+  {
+    "id": 2,
+    "name": "Wanda",
+    "surname": "Vaughn",
+    "phone": 2025550106,
+    "email": "example@gmail.com"
+  },
+  {
+    "id": 3,
+    "name": "Nadine",
+    "surname": "Bailey",
+    "phone": 2025550132,
+    "email": "example@gmail.com"
+  },
+  {
+    "id": 4,
+    "name": "Hope",
+    "surname": "Gray",
+    "phone": 2025550170,
+    "email": "example@gmail.com"
+  },
+  {
+    "id": 5,
+    "name": "Joanne",
+    "surname": "Scott",
+    "phone": 2025550132,
+    "email": "example@gmail.com"
+  },
+  {
+    "id": 6,
+    "name": "Austin",
+    "surname": "Herrera",
+    "phone": 2025550145,
+    "email": "example@gmail.com"
+  }
+]

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>CRUD Application</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <a href="../index.html" class="backToMainPage" title="Back home">&#129032;</a>
+  <h1>The second page</h1>
+
+  <!-- RENDER USER INFORMATION -->
+  <div class="container" id="app">
+
+    <table class="table">
+      <tr>
+        <th class="headline__th">Name</th>
+        <th class="headline__th">Surname</th>
+        <th class="headline__th">Phone</th>
+        <th class="headline__th">Email</th>
+        <th class="headline__th"><button title="Open/Close the panel" @click="openPushJsonPanel"
+            class="additional-control__btn position-btn-json">Import json</button></th>
+        <th class="headline__th"><button @click="addUserWindow"
+            class="additional-control__btn additional-control-padding__btn">Add user</button></th>
+      </tr>
+      <tr v-for="(person, index) in infoPeople" :key="index">
+        <td>{{ person.name }}</td>
+        <td>{{ person.surname }}</td>
+        <td>{{ person.phone }}</td>
+        <td>{{ person.email }}</td>
+        <td><button class="btn-edit" @click="openWindowControl(index)">Edit</button></td>
+        <td><button class="btn-delete" @click="deleteUser(index)">Delete</button></td>
+      </tr>
+    </table>
+
+    <!-- EDIT USER INFORMATION -->
+    <div class="editUserWindow" v-show="isShownEditeWindow">
+      <fieldset class="group-editing">
+        <button class="cancel-editing-btn" @click="closeEditWindow">&#x1f5d9;</button>
+        <legend>Edit User</legend>
+        <section class="edit-control-interface" v-for="(person, index) in editArray" :key='index'>
+          <label for="name" class="label-info">Name
+            <input id="name" type="text" v-model.lazy="person.name">
+          </label>
+          <label for="surname" class="label-info">Surname
+            <input id="surname" type="text" v-model.lazy="person.surname">
+          </label>
+          <label for="phone" class="label-info">Phone
+            <input id="phone" type="text" v-model.lazy="person.phone">
+          </label>
+          <label for="email" class="label-info"> E-mail
+            <input id="email" type="text" v-model.lazy="person.email">
+          </label>
+        </section>
+        <div class="control-btns">
+          <button class="edit-user__btn_control btn-edit" @click="editUser">Edit User</button>
+        </div>
+      </fieldset>
+    </div>
+    <!-- EDIT USER INFORMATION -->
+
+    <!-- ADD USER INFORMATION -->
+    <div class="addUserWindow" v-show="isShownAddUserWindow">
+      <fieldset class="group-editing">
+        <button class="cancel-editing-btn" @click="closeAddUserWindow">&#x1f5d9;</button>
+        <legend>Add a new user</legend>
+        <label>
+          <label for="name" class="label-info">Name
+            <input id="name" type="text" placeholder="Enter name" v-model="addUserObj.name">
+          </label>
+          <label for="surname" class="label-info">Surname
+            <input id="surname" type="text" placeholder="Enter username" v-model="addUserObj.surname">
+          </label>
+          <label for="phone" class="label-info">Phone
+            <input id="phone" type="text" placeholder="Enter phone" v-model="addUserObj.phone">
+          </label>
+          <label for="email" class="label-info"> E-mail
+            <input id="email" type="text" placeholder="Enter email" v-model="addUserObj.email">
+          </label>
+          <span class="error"></span>
+          <div class="control-btns">
+            <button class="add-user__btn_control  edit-user__btn_control btn-edit" @click="adduser">Add User</button>
+          </div>
+        </label>
+      </fieldset>
+    </div>
+    <!-- ADD USER INFORMATION -->
+    <div class="addJsonContainer">
+      <label v-show="isShowPushJsonPanel">
+        <input type="file" id="json-file" @change="getJsonFile">
+        <span class="isDone"></span>
+      </label>
+    </div>
+  </div>
+  <!-- RENDER USER INFORMATION -->
+
+  <script src="../js/vue/vue.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+
+</html>
